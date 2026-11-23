@@ -1,28 +1,18 @@
 # Socializer
 
-Interaktywny, responsywny planer spotkań znajomych. Dane są zapisywane w przeglądarce (`localStorage`) i nie wymagają serwera ani procesu budowania.
+An interactive, responsive meetup planner for friends. Data is stored in the browser (`localStorage`) and no server or build process is required.
 
-## Funkcje
+## Features
 
-- propozycje miejscówek i głosowanie,
-- zestawienie kosztów i automatyczny podział na uczestników,
-- lista obecności,
-- wskazówki dojazdu,
-- przyciski dodawania miejscówek, kosztów i osób.
+- venue suggestions and voting,
+- cost breakdown and automatic per-person splitting,
+- attendance list,
+- travel directions,
+- buttons for adding venues, costs, and participants.
 
-## Lokalny start
+## Deploying to GitHub Pages
 
-Uruchom prosty serwer w katalogu projektu:
-
-```bash
-python -m http.server 8000
-```
-
-Następnie odwiedź `http://localhost:8000`.
-
-## Wdrożenie na GitHub Pages
-
-1. Zatwierdź i wyślij pliki do gałęzi `main`:
+1. Commit and push the files to the `main` branch:
 
 ```bash
 git add .
@@ -30,9 +20,14 @@ git commit -m "Create meetup planner"
 git push origin main
 ```
 
-2. W repozytorium otwórz **Settings → Pages**.
-3. W sekcji **Build and deployment** ustaw **Source** na **Deploy from a branch**.
-4. Wybierz gałąź `main` i folder `/ (root)`, a następnie kliknij **Save**.
-5. Poczekaj na publikację strony. Będzie dostępna pod adresem `https://<użytkownik>.github.io/<nazwa-repozytorium>/`.
+2. Open **Settings → Pages** in the repository.
+3. Under **Build and deployment**, set **Source** to **Deploy from a branch**.
+4. Select the `main` branch and the `/ (root)` folder, then click **Save**.
+5. Wait for the site to be published. It will be available at `https://<username>.github.io/<repository-name>/`.
 
-Repozytorium nie potrzebuje biblioteki ani kompilacji — wystarczą pliki `index.html`, `styles.css` i `app.js`.
+The repository does not require any library or build process. Project files are organized as follows:
+
+- `index.html` — page structure,
+- `css/` — stylesheets,
+- `js/` — JavaScript and initial data,
+- `README.md` — setup and deployment instructions.
