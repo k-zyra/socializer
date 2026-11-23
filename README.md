@@ -1,4 +1,4 @@
-# Rendezvous
+# Socializer
 
 Interaktywny, responsywny planer spotkań znajomych. Dane są zapisywane w przeglądarce (`localStorage`) i nie wymagają serwera ani procesu budowania.
 

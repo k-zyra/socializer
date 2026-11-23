@@ -1,7 +1,7 @@
 const defaults={venues:[{name:'Dom nad jeziorem',desc:'Całodniowy wynajem · 8 km',votes:5,icon:'🏡'},{name:'Pole namiotowe Zielony Gaj',desc:'Camping · kajaki w cenie',votes:3,icon:'⛺'},{name:'Kawiarnia nad wodą',desc:'Obiad i rejs żaglówką',votes:2,icon:'☕'}],expenses:[{name:'Wynajem domku',detail:'Dwa dni',amount:1800},{name:'Grill i jedzenie',detail:'Szacunkowo',amount:420},{name:'Kajaki',detail:'2 × 120 zł',amount:240}],people:[{name:'Marta Kowalska',initials:'MK',status:'Potwierdzono',color:'#d9b9aa'},{name:'Kamil Nowak',initials:'KN',status:'Potwierdzono',color:'#b8ccd1'},{name:'Julia Wiśniewska',initials:'JW',status:'Potwierdzono',color:'#d7c5a3'},{name:'Piotr Lewandowski',initials:'PL',status:'Oczekuje',color:'#c0c8ad'},{name:'Ola Majewska',initials:'OM',status:'Potwierdzono',color:'#d9b3bd'}]};
-let state=JSON.parse(localStorage.getItem('rendezvousState'))||defaults;
+let state=JSON.parse(localStorage.getItem('socializerState'))||JSON.parse(localStorage.getItem('rendezvousState'))||defaults;
 const $=s=>document.querySelector(s);const $$=s=>document.querySelectorAll(s);const money=n=>n.toLocaleString('pl-PL',{maximumFractionDigits:2,minimumFractionDigits:0})+' zł';
-function save(){localStorage.setItem('rendezvousState',JSON.stringify(state));render()}
+function save(){localStorage.setItem('socializerState',JSON.stringify(state));render()}
 function render(){
   $('#venueCount').textContent=state.venues.length;
   $('#venueList').innerHTML=state.venues.map((v,i)=>`<article class="venue"><div class="venue-photo">${v.icon||'⌖'}</div><div><h3>${v.name}</h3><p>${v.desc}</p></div><button class="vote ${v.voted?'voted':''}" data-vote="${i}">♥ ${v.votes}</button></article>`).join('');
