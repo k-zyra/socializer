@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6f3eb" />
+  <title>Rendezvous — planuj spotkania</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#" aria-label="Rendezvous">
+      <span class="brand-mark">R</span>
+      <span>rendezvous</span>
+    </a>
+    <nav class="nav" aria-label="Główna nawigacja">
+      <button class="nav-item active" data-view="overview"><span>⌂</span> Przegląd</button>
+      <button class="nav-item" data-view="venues"><span>⌖</span> Miejscówki</button>
+      <button class="nav-item" data-view="expenses"><span>₽</span> Koszty</button>
+      <button class="nav-item" data-view="attendance"><span>◎</span> Obecność</button>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="mini-profile"><div class="avatar">MK</div><div><strong>Marta</strong><small>Organizatorka</small></div></div>
+    </div>
+  </aside>
+
+  <main>
+    <header class="topbar">
+      <button class="mobile-menu" aria-label="Otwórz menu">☰</button>
+      <div class="breadcrumb"><span>Spotkania</span><b>/</b><strong>Letni wypad nad wodę</strong></div>
+      <button class="icon-button" id="shareBtn" title="Udostępnij">↗</button>
+    </header>
+
+    <div class="content">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">NAJBLIŻSZE SPOTKANIE</p>
+          <h1>Letni wypad nad wodę</h1>
+          <div class="meta-row">
+            <span>▣ 24 sierpnia 2026</span><span>◷ 10:30</span><span>⌖ Jeziorsko</span>
+          </div>
+        </div>
+        <button class="primary-btn" id="inviteBtn">+ Zaproś znajomych</button>
+      </section>
+
+      <section class="stats">
+        <article><span class="stat-icon coral">◎</span><div><strong id="attendingCount">8</strong><small>Potwierdzonych</small></div></article>
+        <article><span class="stat-icon blue">⌖</span><div><strong id="venueCount">3</strong><small>Pomysły na miejsca</small></div></article>
+        <article><span class="stat-icon gold">₽</span><div><strong id="budgetTotal">2 460 zł</strong><small>Łączny koszt</small></div></article>
+        <article><span class="stat-icon green">↗</span><div><strong id="perPerson">307 zł</strong><small>Na osobę</small></div></article>
+      </section>
+
+      <div class="dashboard-grid">
+        <section class="card venues-card" id="venues">
+          <div class="card-header"><div><p class="eyebrow">GŁOSUJEMY</p><h2>Pomysły na miejscówkę</h2></div><button class="text-btn" id="addVenueBtn">+ Dodaj</button></div>
+          <div id="venueList" class="venue-list"></div>
+        </section>
+
+        <section class="card expenses-card" id="expenses">
+          <div class="card-header"><div><p class="eyebrow">BUDŻET</p><h2>Zestawienie kosztów</h2></div><button class="text-btn" id="addExpenseBtn">+ Dodaj</button></div>
+          <div class="expense-total"><span>Łączny koszt</span><strong id="expenseTotal">2 460 zł</strong></div>
+          <div id="expenseList" class="expense-list"></div>
+          <div class="split-box"><div><span>Podział między</span><strong id="splitPeople">8 osób</strong></div><div><span>Każdy płaci</span><strong id="splitAmount">307,50 zł</strong></div></div>
+        </section>
+
+        <section class="card attendance-card" id="attendance">
+          <div class="card-header"><div><p class="eyebrow">UCZESTNICY</p><h2>Lista obecności</h2></div><button class="text-btn" id="addPersonBtn">+ Dodaj</button></div>
+          <div id="peopleList" class="people-list"></div>
+        </section>
+
+        <section class="card directions-card">
+          <div class="card-header"><div><p class="eyebrow">DOJAZD</p><h2>Wskazówki</h2></div></div>
+          <div class="map-art"><div class="route route-a"></div><div class="route route-b"></div><div class="pin">●</div></div>
+          <div class="direction"><span class="direction-icon">🚗</span><div><strong>Samochodem</strong><small>Ok. 1 h 20 min z Warszawy</small></div></div>
+          <div class="direction"><span class="direction-icon">🚆</span><div><strong>Transportem</strong><small>PKP do Sieradza + taxi</small></div></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <dialog id="modal"><form method="dialog" id="modalForm"><div class="modal-header"><h2 id="modalTitle">Dodaj</h2><button class="close-btn" value="cancel">×</button></div><div id="modalFields"></div><div class="modal-actions"><button class="secondary-btn" value="cancel">Anuluj</button><button class="primary-btn" id="modalSubmit" value="default">Zapisz</button></div></form></dialog>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
