@@ -32,9 +32,9 @@ function renderLayout() {
 
     <dialog id="modal">
       <form method="dialog" id="modalForm">
-        <div class="modal-header"><h2 id="modalTitle">Dodaj</h2><button class="close-btn" value="cancel">×</button></div>
+        <div class="modal-header"><h2 id="modalTitle">Dodaj</h2><button type="button" class="close-btn" data-modal-close aria-label="Zamknij">×</button></div>
         <div id="modalFields"></div>
-        <div class="modal-actions"><button class="secondary-btn" value="cancel">Anuluj</button><button class="primary-btn" value="default">Zapisz</button></div>
+        <div class="modal-actions"><button type="button" class="secondary-btn" data-modal-close>Anuluj</button><button type="submit" class="primary-btn">Zapisz</button></div>
       </form>
     </dialog>
     <div id="toast" class="toast" role="status"></div>

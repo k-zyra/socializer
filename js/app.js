@@ -56,11 +56,29 @@ function toast(message) {
 }
 
 function initializeEvents() {
+  $$("[data-modal-close]").forEach((button) => {
+    button.onclick = () => {
+      modalAction = null;
+      $("#modal").close();
+    };
+  });
+
+  $("#modal").addEventListener("close", () => {
+    modalAction = null;
+  });
+
+  $("#modal").addEventListener("click", (event) => {
+    if (event.target === $("#modal")) {
+      modalAction = null;
+      $("#modal").close();
+    }
+  });
+
   $("#modalForm").addEventListener("submit", (event) => {
-    if (event.submitter?.value === "cancel") return;
     event.preventDefault();
 
     modalAction?.(Object.fromEntries(new FormData(event.currentTarget)));
+    modalAction = null;
     $("#modal").close();
   });
 
